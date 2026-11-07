@@ -1,0 +1,298 @@
+# BD Shipping & Checkout for WooCommerce, by Saizul Amin.
+# Copyright (C) 2026 Saizul Amin
+# This file is distributed under the same license as the BD Shipping & Checkout for WooCommerce package.
+# Bangla (Bangladesh) translation, Saizul Amin, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: BD Shipping & Checkout for WooCommerce 1.0.0\n"
+"Report-Msgid-Bugs-To: https://github.com/saizul/woo-bd-shipping/issues\n"
+"POT-Creation-Date: 2026-11-07 20:54+0600\n"
+"PO-Revision-Date: 2026-11-07 00:00+0600\n"
+"Last-Translator: Saizul Amin\n"
+"Language-Team: Saizul Amin\n"
+"Language: bn_BD\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: woo-bd-shipping.php:63
+msgid ""
+"BD Shipping & Checkout requires PHP 8.1+ and an active WooCommerce "
+"installation."
+msgstr ""
+
+#: src/Plugin.php:101
+msgid "Settings"
+msgstr "সেটিংস"
+
+#: src/Admin/SettingsPage.php:40 src/Admin/SettingsPage.php:145
+msgid "BD Shipping & Checkout"
+msgstr "বিডি শিপিং ও চেকআউট"
+
+#: src/Admin/SettingsPage.php:41 src/Shipping/ShippingMethod.php:31
+msgid "BD Shipping"
+msgstr "বিডি শিপিং"
+
+#: src/Admin/SettingsPage.php:56
+msgid "Shipping rates"
+msgstr "শিপিং চার্জ"
+
+#: src/Admin/SettingsPage.php:58
+msgid "Inside Dhaka"
+msgstr "ঢাকার ভেতরে"
+
+#: src/Admin/SettingsPage.php:58
+msgid "Flat rate when the district is Dhaka."
+msgstr "জেলা ঢাকা হলে নির্দিষ্ট চার্জ।"
+
+#: src/Admin/SettingsPage.php:59
+msgid "Dhaka sub-area"
+msgstr "ঢাকার আশেপাশের এলাকা"
+
+#: src/Admin/SettingsPage.php:59
+msgid "Flat rate for the sub-area districts selected below."
+msgstr "নিচে নির্বাচিত আশেপাশের জেলাগুলোর নির্দিষ্ট চার্জ।"
+
+#: src/Admin/SettingsPage.php:60
+msgid "Outside Dhaka"
+msgstr "ঢাকার বাইরে"
+
+#: src/Admin/SettingsPage.php:60
+msgid "Flat rate for every other district."
+msgstr "বাকি সব জেলার নির্দিষ্ট চার্জ।"
+
+#: src/Admin/SettingsPage.php:61
+msgid "Sub-area districts"
+msgstr "আশেপাশের জেলা"
+
+#: src/Admin/SettingsPage.php:61
+msgid "Hold Ctrl or Cmd to select several districts."
+msgstr "একাধিক জেলা নির্বাচন করতে Ctrl বা Cmd চেপে ধরুন।"
+
+#: src/Admin/SettingsPage.php:62
+msgid "Per-district overrides"
+msgstr "জেলাভিত্তিক বিশেষ চার্জ"
+
+#: src/Admin/SettingsPage.php:62
+msgid ""
+"One per line as district=amount, for example Sylhet=150 or BD-60=150. "
+"Overrides replace the zone rate."
+msgstr "প্রতি লাইনে একটি করে লিখুন: জেলা=টাকা, যেমন Sylhet=150 বা BD-60=150। এটি জোনের চার্জের বদলে প্রযোজ্য হবে।"
+
+
+#: src/Admin/SettingsPage.php:63
+msgid "Included weight (kg)"
+msgstr "অন্তর্ভুক্ত ওজন (কেজি)"
+
+#: src/Admin/SettingsPage.php:63
+msgid "Weight covered by the flat rate."
+msgstr "নির্দিষ্ট চার্জের মধ্যে যে ওজন অন্তর্ভুক্ত।"
+
+#: src/Admin/SettingsPage.php:64
+msgid "Extra charge per kg"
+msgstr "প্রতি কেজিতে অতিরিক্ত চার্জ"
+
+#: src/Admin/SettingsPage.php:64
+msgid ""
+"Added for every started kilogram above the included weight. 0 disables it."
+msgstr "অন্তর্ভুক্ত ওজনের বেশি প্রতি কেজির (শুরু হওয়া কেজিসহ) জন্য যোগ হবে। ০ দিলে বন্ধ থাকবে।"
+
+
+#: src/Admin/SettingsPage.php:65
+msgid "Free shipping threshold"
+msgstr "ফ্রি শিপিংয়ের সীমা"
+
+#: src/Admin/SettingsPage.php:65
+msgid "Cart subtotal that unlocks free shipping. 0 disables it."
+msgstr "কার্টের যে সাবটোটালে ফ্রি শিপিং পাওয়া যাবে। ০ দিলে বন্ধ থাকবে।"
+
+#: src/Admin/SettingsPage.php:69
+msgid "Cash on delivery"
+msgstr "ক্যাশ অন ডেলিভারি"
+
+#: src/Admin/SettingsPage.php:73
+msgid "COD fee type"
+msgstr "COD ফির ধরন"
+
+#: src/Admin/SettingsPage.php:75
+msgid "Fixed amount"
+msgstr "নির্দিষ্ট পরিমাণ"
+
+#: src/Admin/SettingsPage.php:76
+msgid "Percentage of subtotal + shipping"
+msgstr "সাবটোটাল + শিপিংয়ের শতাংশ"
+
+#: src/Admin/SettingsPage.php:79
+msgid "COD fee value"
+msgstr "COD ফির পরিমাণ"
+
+#: src/Admin/SettingsPage.php:79
+msgid "Amount or percentage. 0 disables the fee."
+msgstr "টাকার পরিমাণ বা শতাংশ। ০ দিলে ফি বন্ধ থাকবে।"
+
+#: src/Admin/SettingsPage.php:80
+msgid "COD fee label"
+msgstr "COD ফির নাম"
+
+#: src/Admin/SettingsPage.php:80
+msgid "Name of the fee line at checkout."
+msgstr "চেকআউটে ফি লাইনের নাম।"
+
+#: src/Admin/SettingsPage.php:84
+msgid "Checkout"
+msgstr "চেকআউট"
+
+#: src/Admin/SettingsPage.php:86
+msgid "District select"
+msgstr "জেলা নির্বাচন"
+
+#: src/Admin/SettingsPage.php:86
+msgid "Replace the Bangladesh state field with the 64 districts."
+msgstr "বাংলাদেশের স্টেট ফিল্ডের জায়গায় ৬৪টি জেলা দেখান।"
+
+#: src/Admin/SettingsPage.php:89
+msgid "District names"
+msgstr "জেলার নাম"
+
+#: src/Admin/SettingsPage.php:91
+msgid "English"
+msgstr "ইংরেজি"
+
+#: src/Admin/SettingsPage.php:92
+msgid "Bangla"
+msgstr "বাংলা"
+
+#: src/Admin/SettingsPage.php:93
+msgid "English (Bangla)"
+msgstr "ইংরেজি (বাংলা)"
+
+#: src/Admin/SettingsPage.php:96
+msgid "Upazila / thana field"
+msgstr "উপজেলা / থানা ফিল্ড"
+
+#: src/Admin/SettingsPage.php:96
+msgid "Add an optional free text field after the city."
+msgstr "শহরের পরে একটি ঐচ্ছিক টেক্সট ফিল্ড যোগ করুন।"
+
+#: src/Admin/SettingsPage.php:97
+msgid "Validate mobile numbers"
+msgstr "মোবাইল নম্বর যাচাই"
+
+#: src/Admin/SettingsPage.php:97
+msgid ""
+"Accepts 01[3-9]XXXXXXXX, +880 / 880 prefixes and Bangla digits. Valid "
+"numbers are saved as 01XXXXXXXXX."
+msgstr "01[3-9]XXXXXXXX, +880 / 880 কোড এবং বাংলা অঙ্ক গ্রহণযোগ্য। সঠিক নম্বর 01XXXXXXXXX আকারে সংরক্ষিত হবে।"
+
+
+#: src/Admin/SettingsPage.php:98
+msgid "Phone required"
+msgstr "ফোন বাধ্যতামূলক"
+
+#: src/Admin/SettingsPage.php:98
+msgid "Make the billing phone mandatory."
+msgstr "বিলিং ফোন নম্বর বাধ্যতামূলক করুন।"
+
+#: src/Admin/SettingsPage.php:99
+msgid "Remove postcode"
+msgstr "পোস্টকোড সরান"
+
+#: src/Admin/SettingsPage.php:99
+msgid "Hide the postcode field."
+msgstr "পোস্টকোড ফিল্ড লুকিয়ে রাখুন।"
+
+#: src/Admin/SettingsPage.php:100
+msgid "Remove company"
+msgstr "কোম্পানি সরান"
+
+#: src/Admin/SettingsPage.php:100
+msgid "Hide the company field."
+msgstr "কোম্পানি ফিল্ড লুকিয়ে রাখুন।"
+
+#: src/Admin/SettingsPage.php:101
+msgid "Bangla order note"
+msgstr "বাংলা অর্ডার নোট"
+
+#: src/Admin/SettingsPage.php:101
+msgid "Use the label and placeholder below on the order notes field."
+msgstr "অর্ডার নোট ফিল্ডে নিচের লেবেল ও প্লেসহোল্ডার ব্যবহার করুন।"
+
+#: src/Admin/SettingsPage.php:102
+msgid "Order note label"
+msgstr "অর্ডার নোটের লেবেল"
+
+#: src/Admin/SettingsPage.php:103
+msgid "Order note placeholder"
+msgstr "অর্ডার নোটের প্লেসহোল্ডার"
+
+#: src/Admin/SettingsPage.php:143
+msgid "You do not have permission to access this page."
+msgstr "এই পেজ দেখার অনুমতি আপনার নেই।"
+
+#: src/Shipping/ShippingMethod.php:32
+msgid ""
+"District based rates for Bangladesh. Configure rates under WooCommerce > BD "
+"Shipping."
+msgstr "জেলাভিত্তিক শিপিং চার্জ। চার্জ ঠিক করুন WooCommerce > বিডি শিপিং থেকে।"
+
+
+#: src/Shipping/ShippingMethod.php:38 src/Shipping/ShippingMethod.php:50
+msgid "Delivery charge"
+msgstr "ডেলিভারি চার্জ"
+
+#: src/Shipping/ShippingMethod.php:48
+msgid "Method title"
+msgstr "মেথডের নাম"
+
+#: src/Shipping/ShippingMethod.php:51
+msgid "Label shown to the customer at checkout."
+msgstr "চেকআউটে ক্রেতাকে যে নাম দেখানো হবে।"
+
+#: src/Shipping/ShippingMethod.php:55
+msgid "Tax status"
+msgstr "ট্যাক্স স্ট্যাটাস"
+
+#: src/Shipping/ShippingMethod.php:60
+msgid "Taxable"
+msgstr "করযোগ্য"
+
+#: src/Shipping/ShippingMethod.php:61
+msgctxt "Tax status"
+msgid "None"
+msgstr "নেই"
+
+#: src/Checkout/CodFee.php:88
+msgid "Cash on delivery fee"
+msgstr "ক্যাশ অন ডেলিভারি ফি"
+
+#: src/Checkout/CheckoutTweaks.php:68
+msgid "District"
+msgstr "জেলা"
+
+#: src/Checkout/CheckoutTweaks.php:111
+msgid "Upazila / Thana"
+msgstr "উপজেলা / থানা"
+
+#: src/Checkout/CheckoutTweaks.php:112
+msgid "Upazila or thana (optional)"
+msgstr "উপজেলা বা থানা (ঐচ্ছিক)"
+
+#: src/Checkout/CheckoutTweaks.php:159
+msgid "Billing phone"
+msgstr "বিলিং ফোন"
+
+#: src/Checkout/CheckoutTweaks.php:159
+msgid "Shipping phone"
+msgstr "শিপিং ফোন"
+
+#. translators: %s: field label
+#: src/Checkout/CheckoutTweaks.php:164
+#, php-format
+msgid "%s must be a valid Bangladeshi mobile number, for example 01712345678."
+msgstr "%s অবশ্যই একটি সঠিক বাংলাদেশি মোবাইল নম্বর হতে হবে, যেমন 01712345678।"
+
+#: src/Checkout/CheckoutTweaks.php:219
+msgid "Upazila / Thana:"
+msgstr "উপজেলা / থানা:"
