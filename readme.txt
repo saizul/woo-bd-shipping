@@ -45,6 +45,10 @@ No. Use the classic checkout shortcode.
 
 Enter one per line, for example `Sylhet=150` or `BD-60=150`. An override replaces the zone rate for that district. Free shipping still wins when the threshold is reached.
 
+= Can I show a free delivery message? =
+
+Yes. Set a free shipping threshold, then enable the free shipping notice in the settings to show "Add X more to get free delivery" on the cart and checkout pages, or use the `[woo_bd_free_shipping]` shortcode.
+
 = How is the COD fee calculated? =
 
 A fixed amount, or a percentage of the cart subtotal plus the chosen shipping cost. It is added only when Cash on Delivery is selected and the customer ships to Bangladesh.

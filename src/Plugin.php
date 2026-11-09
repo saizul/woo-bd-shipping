@@ -12,6 +12,7 @@ namespace WooBDShipping;
 use WooBDShipping\Admin\SettingsPage;
 use WooBDShipping\Checkout\CheckoutTweaks;
 use WooBDShipping\Checkout\CodFee;
+use WooBDShipping\Checkout\FreeShippingNotice;
 use WooBDShipping\Shipping\ShippingMethod;
 
 defined( 'ABSPATH' ) || exit;
@@ -70,6 +71,7 @@ final class Plugin {
 		( new SettingsPage() )->register();
 		( new CheckoutTweaks() )->register();
 		( new CodFee() )->register();
+		( new FreeShippingNotice() )->register();
 	}
 
 	/**

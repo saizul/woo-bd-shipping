@@ -4,6 +4,12 @@ All notable changes to this project are documented here. The format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the project uses
 [Semantic Versioning](https://semver.org/).
 
+## [Unreleased]
+
+### Added
+- Free shipping progress notice ("Add ৳X more to get free delivery.") on the cart and checkout pages, enabled in the settings, plus the `[woo_bd_free_shipping]` shortcode. The message is editable and supports an `{amount}` placeholder.
+- `FreeShipping` helper with unit tests.
+
 ## [1.0.0] - 2026-11-07
 
 ### Added
