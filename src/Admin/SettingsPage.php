@@ -63,6 +63,8 @@ final class SettingsPage {
 					'included_weight'    => array( 'type' => 'money', 'label' => __( 'Included weight (kg)', 'woo-bd-shipping' ), 'desc' => __( 'Weight covered by the flat rate.', 'woo-bd-shipping' ) ),
 					'extra_per_kg'       => array( 'type' => 'money', 'label' => __( 'Extra charge per kg', 'woo-bd-shipping' ), 'desc' => __( 'Added for every started kilogram above the included weight. 0 disables it.', 'woo-bd-shipping' ) ),
 					'free_threshold'     => array( 'type' => 'money', 'label' => __( 'Free shipping threshold', 'woo-bd-shipping' ), 'desc' => __( 'Cart subtotal that unlocks free shipping. 0 disables it.', 'woo-bd-shipping' ) ),
+					'free_shipping_notice'  => array( 'type' => 'checkbox', 'label' => __( 'Free shipping notice', 'woo-bd-shipping' ), 'desc' => __( 'Show how much more the customer must add for free delivery on the cart and checkout pages. Also available as the [woo_bd_free_shipping] shortcode.', 'woo-bd-shipping' ) ),
+					'free_shipping_message' => array( 'type' => 'text', 'label' => __( 'Free shipping message', 'woo-bd-shipping' ), 'desc' => __( 'Use {amount} where the missing amount should appear.', 'woo-bd-shipping' ) ),
 				),
 			),
 			'cod'      => array(

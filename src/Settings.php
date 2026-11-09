@@ -34,6 +34,9 @@ final class Settings {
 			'included_weight'    => 1,
 			'extra_per_kg'       => 0,
 			'free_threshold'     => 0,
+			// Free shipping notice.
+			'free_shipping_notice'  => 'no',
+			'free_shipping_message' => 'Add {amount} more to get free delivery.',
 			// Cash on delivery.
 			'cod_fee_type'       => 'fixed',
 			'cod_fee_value'      => 0,

@@ -8,6 +8,7 @@ District based shipping, COD fee and checkout tweaks for Bangladeshi WooCommerce
 
 - **All 8 divisions and 64 districts** with English and Bangla names. The Bangladesh state field becomes a district select (English, Bangla or both), with an optional upazila / thana text field.
 - **Shipping method** with Inside Dhaka, Dhaka sub-area and Outside Dhaka rates, per-district overrides, extra charge per kg above an included weight, and a free shipping threshold.
+- **Free shipping notice**: optional "Add ৳X more to get free delivery" message on the cart and checkout pages, or anywhere with the `[woo_bd_free_shipping]` shortcode.
 - **COD fee**, fixed or percentage, added when Cash on Delivery is selected (the totals refresh as the customer switches payment method).
 - **Checkout tweaks**, each one toggleable: Bangladeshi mobile validation (`01[3-9]XXXXXXXX`, `+880` / `880` prefixes, Bangla digits, saved as `01XXXXXXXXX`), remove postcode and company, phone required, Bangla order note label.
 - Settings page under **WooCommerce > BD Shipping** (Settings API, nonces, capability checks).
@@ -31,6 +32,8 @@ PHP 8.1+, WordPress 6.4+, WooCommerce 8+. The classic shortcode checkout is supp
 2. Otherwise the base rate is the per-district override if one exists, else the zone rate (Dhaka district, a selected sub-area district, or everywhere else).
 3. Every started kilogram above the included weight adds the per-kg charge.
 4. The result passes through the `woo_bd_shipping_rate` filter.
+
+The free shipping notice is off by default. Enable **Free shipping notice** in the settings (the threshold must be above 0) to show it on the cart and checkout pages. The text is editable; `{amount}` is replaced with the missing amount. To place it elsewhere, use the `[woo_bd_free_shipping]` shortcode. Nothing is shown for empty carts or for customers shipping outside Bangladesh.
 
 Override syntax, one per line: `Sylhet=150`, `BD-60: 150` or `ঢাকা,70`. Lines starting with `#` are ignored.
 
@@ -68,7 +71,7 @@ vendor/bin/phpunit
 find . -name '*.php' -not -path './vendor/*' -print0 | xargs -0 -n1 php -l
 ```
 
-Tested classes: `Districts`, `PhoneNormalizer`, `RateConfig`, `RateCalculator` in `src/`. See [CONTRIBUTING.md](CONTRIBUTING.md) and [CHANGELOG.md](CHANGELOG.md).
+Tested classes: `Districts`, `PhoneNormalizer`, `RateConfig`, `RateCalculator`, `FreeShipping` in `src/`. See [CONTRIBUTING.md](CONTRIBUTING.md) and [CHANGELOG.md](CHANGELOG.md).
 
 ## FAQ
 
