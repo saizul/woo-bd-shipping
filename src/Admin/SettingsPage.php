@@ -67,6 +67,36 @@ final class SettingsPage {
 					'free_shipping_message' => array( 'type' => 'text', 'label' => __( 'Free shipping message', 'woo-bd-shipping' ), 'desc' => __( 'Use {amount} where the missing amount should appear.', 'woo-bd-shipping' ) ),
 				),
 			),
+			'delivery' => array(
+				'title'  => __( 'Delivery estimate', 'woo-bd-shipping' ),
+				'fields' => array(
+					'delivery_estimate'     => array( 'type' => 'checkbox', 'label' => __( 'Show delivery estimate', 'woo-bd-shipping' ), 'desc' => __( 'Add the estimated delivery time to the shipping method label and save it on the order.', 'woo-bd-shipping' ) ),
+					'delivery_inside_dhaka' => array( 'type' => 'text', 'label' => __( 'Inside Dhaka (days)', 'woo-bd-shipping' ), 'desc' => __( 'Working days as a number or a range, for example 1 or 1-2. Leave empty for no estimate.', 'woo-bd-shipping' ) ),
+					'delivery_sub_area'     => array( 'type' => 'text', 'label' => __( 'Dhaka sub-area (days)', 'woo-bd-shipping' ) ),
+					'delivery_outside'      => array( 'type' => 'text', 'label' => __( 'Outside Dhaka (days)', 'woo-bd-shipping' ) ),
+					'delivery_overrides'    => array( 'type' => 'textarea', 'label' => __( 'Per-district delivery days', 'woo-bd-shipping' ), 'desc' => __( 'One per line as district=days, for example Sylhet=2-3 or BD-01=5-7. Overrides replace the zone estimate.', 'woo-bd-shipping' ) ),
+					'delivery_cutoff'       => array( 'type' => 'text', 'label' => __( 'Order cut-off time', 'woo-bd-shipping' ), 'desc' => __( '24-hour time such as 14:00. Orders placed later are dispatched on the next working day. Leave empty for no cut-off. Only used for arrival dates.', 'woo-bd-shipping' ) ),
+					'delivery_off_days'     => array(
+						'type'    => 'select',
+						'label'   => __( 'Weekly off days', 'woo-bd-shipping' ),
+						'desc'    => __( 'Days without dispatch or delivery. Only used for arrival dates.', 'woo-bd-shipping' ),
+						'options' => array(
+							'none'    => __( 'None', 'woo-bd-shipping' ),
+							'fri'     => __( 'Friday', 'woo-bd-shipping' ),
+							'fri_sat' => __( 'Friday and Saturday', 'woo-bd-shipping' ),
+						),
+					),
+					'delivery_format'       => array(
+						'type'    => 'select',
+						'label'   => __( 'Estimate format', 'woo-bd-shipping' ),
+						'options' => array(
+							'days'  => __( 'Number of days (2-3 days)', 'woo-bd-shipping' ),
+							'dates' => __( 'Arrival dates (14 Nov - 16 Nov)', 'woo-bd-shipping' ),
+						),
+					),
+					'delivery_label'        => array( 'type' => 'text', 'label' => __( 'Estimate text', 'woo-bd-shipping' ), 'desc' => __( 'Shown in brackets after the method title. Use {estimate} where the days or dates should appear.', 'woo-bd-shipping' ) ),
+				),
+			),
 			'cod'      => array(
 				'title'  => __( 'Cash on delivery', 'woo-bd-shipping' ),
 				'fields' => array(

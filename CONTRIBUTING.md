@@ -16,7 +16,7 @@ functions (`Plugin`, `Settings`, `Admin/`, `Checkout/`, `Shipping/`) are kept th
 
 ## Guidelines
 
-- Put calculation, parsing and lookup logic in pure classes (`Districts`, `PhoneNormalizer`, `RateConfig`, `RateCalculator`) and cover it with tests.
+- Put calculation, parsing and lookup logic in pure classes (`Districts`, `PhoneNormalizer`, `RateConfig`, `RateCalculator`, `FreeShipping`, `DeliveryEstimate`) and cover it with tests.
 - Run `php -l` on every PHP file you touch. CI lints all files and runs PHPUnit on PHP 8.1, 8.2 and 8.3.
 - Escape output (`esc_html`, `esc_attr`, ...), sanitize input, check capabilities and keep the `defined( 'ABSPATH' ) || exit;` guard in every WordPress-facing file.
 - Make user-facing strings translatable with the `woo-bd-shipping` text domain. After adding strings regenerate the template:

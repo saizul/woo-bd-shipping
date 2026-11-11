@@ -37,6 +37,16 @@ final class Settings {
 			// Free shipping notice.
 			'free_shipping_notice'  => 'no',
 			'free_shipping_message' => 'Add {amount} more to get free delivery.',
+			// Delivery estimate.
+			'delivery_estimate'     => 'no',
+			'delivery_inside_dhaka' => '1-2',
+			'delivery_sub_area'     => '2-3',
+			'delivery_outside'      => '3-5',
+			'delivery_overrides'    => '',
+			'delivery_cutoff'       => '',
+			'delivery_off_days'     => 'fri',
+			'delivery_format'       => 'days',
+			'delivery_label'        => 'Delivery in {estimate}',
 			// Cash on delivery.
 			'cod_fee_type'       => 'fixed',
 			'cod_fee_value'      => 0,
