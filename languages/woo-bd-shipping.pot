@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: BD Shipping & Checkout for WooCommerce 1.0.0\n"
 "Report-Msgid-Bugs-To: https://github.com/saizul/woo-bd-shipping/issues\n"
-"POT-Creation-Date: 2026-11-07 20:54+0600\n"
+"POT-Creation-Date: 2026-11-11 11:20+0600\n"
 "PO-Revision-Date: 2026-11-07 00:00+0600\n"
 "Last-Translator: Saizul Amin\n"
 "Language-Team: Saizul Amin\n"
@@ -22,15 +22,15 @@ msgid ""
 "installation."
 msgstr ""
 
-#: src/Plugin.php:101
+#: src/Plugin.php:110
 msgid "Settings"
 msgstr ""
 
-#: src/Admin/SettingsPage.php:40 src/Admin/SettingsPage.php:145
+#: src/Admin/SettingsPage.php:40 src/Admin/SettingsPage.php:177
 msgid "BD Shipping & Checkout"
 msgstr ""
 
-#: src/Admin/SettingsPage.php:41 src/Shipping/ShippingMethod.php:31
+#: src/Admin/SettingsPage.php:41 src/Shipping/ShippingMethod.php:33
 msgid "BD Shipping"
 msgstr ""
 
@@ -105,157 +105,289 @@ msgstr ""
 msgid "Cart subtotal that unlocks free shipping. 0 disables it."
 msgstr ""
 
-#: src/Admin/SettingsPage.php:69
-msgid "Cash on delivery"
+#: src/Admin/SettingsPage.php:66
+msgid "Free shipping notice"
+msgstr ""
+
+#: src/Admin/SettingsPage.php:66
+msgid ""
+"Show how much more the customer must add for free delivery on the cart and "
+"checkout pages. Also available as the [woo_bd_free_shipping] shortcode."
+msgstr ""
+
+#: src/Admin/SettingsPage.php:67
+msgid "Free shipping message"
+msgstr ""
+
+#: src/Admin/SettingsPage.php:67
+msgid "Use {amount} where the missing amount should appear."
+msgstr ""
+
+#: src/Admin/SettingsPage.php:71
+msgid "Delivery estimate"
 msgstr ""
 
 #: src/Admin/SettingsPage.php:73
-msgid "COD fee type"
+msgid "Show delivery estimate"
+msgstr ""
+
+#: src/Admin/SettingsPage.php:73
+msgid ""
+"Add the estimated delivery time to the shipping method label and save it on "
+"the order."
+msgstr ""
+
+#: src/Admin/SettingsPage.php:74
+msgid "Inside Dhaka (days)"
+msgstr ""
+
+#: src/Admin/SettingsPage.php:74
+msgid ""
+"Working days as a number or a range, for example 1 or 1-2. Leave empty for "
+"no estimate."
 msgstr ""
 
 #: src/Admin/SettingsPage.php:75
-msgid "Fixed amount"
+msgid "Dhaka sub-area (days)"
 msgstr ""
 
 #: src/Admin/SettingsPage.php:76
-msgid "Percentage of subtotal + shipping"
+msgid "Outside Dhaka (days)"
 msgstr ""
 
-#: src/Admin/SettingsPage.php:79
-msgid "COD fee value"
+#: src/Admin/SettingsPage.php:77
+msgid "Per-district delivery days"
 msgstr ""
 
-#: src/Admin/SettingsPage.php:79
-msgid "Amount or percentage. 0 disables the fee."
+#: src/Admin/SettingsPage.php:77
+msgid ""
+"One per line as district=days, for example Sylhet=2-3 or BD-01=5-7. "
+"Overrides replace the zone estimate."
 msgstr ""
 
-#: src/Admin/SettingsPage.php:80
-msgid "COD fee label"
+#: src/Admin/SettingsPage.php:78
+msgid "Order cut-off time"
 msgstr ""
 
-#: src/Admin/SettingsPage.php:80
-msgid "Name of the fee line at checkout."
+#: src/Admin/SettingsPage.php:78
+msgid ""
+"24-hour time such as 14:00. Orders placed later are dispatched on the next "
+"working day. Leave empty for no cut-off. Only used for arrival dates."
+msgstr ""
+
+#: src/Admin/SettingsPage.php:81
+msgid "Weekly off days"
+msgstr ""
+
+#: src/Admin/SettingsPage.php:82
+msgid "Days without dispatch or delivery. Only used for arrival dates."
 msgstr ""
 
 #: src/Admin/SettingsPage.php:84
-msgid "Checkout"
+msgid "None"
+msgstr ""
+
+#: src/Admin/SettingsPage.php:85
+msgid "Friday"
 msgstr ""
 
 #: src/Admin/SettingsPage.php:86
-msgid "District select"
-msgstr ""
-
-#: src/Admin/SettingsPage.php:86
-msgid "Replace the Bangladesh state field with the 64 districts."
-msgstr ""
-
-#: src/Admin/SettingsPage.php:89
-msgid "District names"
+msgid "Friday and Saturday"
 msgstr ""
 
 #: src/Admin/SettingsPage.php:91
-msgid "English"
-msgstr ""
-
-#: src/Admin/SettingsPage.php:92
-msgid "Bangla"
+msgid "Estimate format"
 msgstr ""
 
 #: src/Admin/SettingsPage.php:93
+msgid "Number of days (2-3 days)"
+msgstr ""
+
+#: src/Admin/SettingsPage.php:94
+msgid "Arrival dates (14 Nov - 16 Nov)"
+msgstr ""
+
+#: src/Admin/SettingsPage.php:97
+msgid "Estimate text"
+msgstr ""
+
+#: src/Admin/SettingsPage.php:97
+msgid ""
+"Shown in brackets after the method title. Use {estimate} where the days or "
+"dates should appear."
+msgstr ""
+
+#: src/Admin/SettingsPage.php:101
+msgid "Cash on delivery"
+msgstr ""
+
+#: src/Admin/SettingsPage.php:105
+msgid "COD fee type"
+msgstr ""
+
+#: src/Admin/SettingsPage.php:107
+msgid "Fixed amount"
+msgstr ""
+
+#: src/Admin/SettingsPage.php:108
+msgid "Percentage of subtotal + shipping"
+msgstr ""
+
+#: src/Admin/SettingsPage.php:111
+msgid "COD fee value"
+msgstr ""
+
+#: src/Admin/SettingsPage.php:111
+msgid "Amount or percentage. 0 disables the fee."
+msgstr ""
+
+#: src/Admin/SettingsPage.php:112
+msgid "COD fee label"
+msgstr ""
+
+#: src/Admin/SettingsPage.php:112
+msgid "Name of the fee line at checkout."
+msgstr ""
+
+#: src/Admin/SettingsPage.php:116
+msgid "Checkout"
+msgstr ""
+
+#: src/Admin/SettingsPage.php:118
+msgid "District select"
+msgstr ""
+
+#: src/Admin/SettingsPage.php:118
+msgid "Replace the Bangladesh state field with the 64 districts."
+msgstr ""
+
+#: src/Admin/SettingsPage.php:121
+msgid "District names"
+msgstr ""
+
+#: src/Admin/SettingsPage.php:123
+msgid "English"
+msgstr ""
+
+#: src/Admin/SettingsPage.php:124
+msgid "Bangla"
+msgstr ""
+
+#: src/Admin/SettingsPage.php:125
 msgid "English (Bangla)"
 msgstr ""
 
-#: src/Admin/SettingsPage.php:96
+#: src/Admin/SettingsPage.php:128
 msgid "Upazila / thana field"
 msgstr ""
 
-#: src/Admin/SettingsPage.php:96
+#: src/Admin/SettingsPage.php:128
 msgid "Add an optional free text field after the city."
 msgstr ""
 
-#: src/Admin/SettingsPage.php:97
+#: src/Admin/SettingsPage.php:129
 msgid "Validate mobile numbers"
 msgstr ""
 
-#: src/Admin/SettingsPage.php:97
+#: src/Admin/SettingsPage.php:129
 msgid ""
 "Accepts 01[3-9]XXXXXXXX, +880 / 880 prefixes and Bangla digits. Valid "
 "numbers are saved as 01XXXXXXXXX."
 msgstr ""
 
-#: src/Admin/SettingsPage.php:98
+#: src/Admin/SettingsPage.php:130
 msgid "Phone required"
 msgstr ""
 
-#: src/Admin/SettingsPage.php:98
+#: src/Admin/SettingsPage.php:130
 msgid "Make the billing phone mandatory."
 msgstr ""
 
-#: src/Admin/SettingsPage.php:99
+#: src/Admin/SettingsPage.php:131
 msgid "Remove postcode"
 msgstr ""
 
-#: src/Admin/SettingsPage.php:99
+#: src/Admin/SettingsPage.php:131
 msgid "Hide the postcode field."
 msgstr ""
 
-#: src/Admin/SettingsPage.php:100
+#: src/Admin/SettingsPage.php:132
 msgid "Remove company"
 msgstr ""
 
-#: src/Admin/SettingsPage.php:100
+#: src/Admin/SettingsPage.php:132
 msgid "Hide the company field."
 msgstr ""
 
-#: src/Admin/SettingsPage.php:101
+#: src/Admin/SettingsPage.php:133
 msgid "Bangla order note"
 msgstr ""
 
-#: src/Admin/SettingsPage.php:101
+#: src/Admin/SettingsPage.php:133
 msgid "Use the label and placeholder below on the order notes field."
 msgstr ""
 
-#: src/Admin/SettingsPage.php:102
+#: src/Admin/SettingsPage.php:134
 msgid "Order note label"
 msgstr ""
 
-#: src/Admin/SettingsPage.php:103
+#: src/Admin/SettingsPage.php:135
 msgid "Order note placeholder"
 msgstr ""
 
-#: src/Admin/SettingsPage.php:143
+#: src/Admin/SettingsPage.php:175
 msgid "You do not have permission to access this page."
 msgstr ""
 
-#: src/Shipping/ShippingMethod.php:32
+#: src/Shipping/ShippingMethod.php:34
 msgid ""
 "District based rates for Bangladesh. Configure rates under WooCommerce > BD "
 "Shipping."
 msgstr ""
 
-#: src/Shipping/ShippingMethod.php:38 src/Shipping/ShippingMethod.php:50
+#: src/Shipping/ShippingMethod.php:40 src/Shipping/ShippingMethod.php:52
 msgid "Delivery charge"
 msgstr ""
 
-#: src/Shipping/ShippingMethod.php:48
+#: src/Shipping/ShippingMethod.php:50
 msgid "Method title"
 msgstr ""
 
-#: src/Shipping/ShippingMethod.php:51
+#: src/Shipping/ShippingMethod.php:53
 msgid "Label shown to the customer at checkout."
 msgstr ""
 
-#: src/Shipping/ShippingMethod.php:55
+#: src/Shipping/ShippingMethod.php:57
 msgid "Tax status"
 msgstr ""
 
-#: src/Shipping/ShippingMethod.php:60
+#: src/Shipping/ShippingMethod.php:62
 msgid "Taxable"
 msgstr ""
 
-#: src/Shipping/ShippingMethod.php:61
+#: src/Shipping/ShippingMethod.php:63
 msgctxt "Tax status"
 msgid "None"
+msgstr ""
+
+#: src/Shipping/ShippingMethod.php:108
+msgid "Estimated delivery"
+msgstr ""
+
+#: src/Shipping/ShippingMethod.php:135
+msgid "Same day"
+msgstr ""
+
+#. translators: %s: number of days, always 1.
+#: src/Shipping/ShippingMethod.php:137
+#, php-format
+msgid "%s day"
+msgstr ""
+
+#. translators: %s: number of days or a range such as 2-3.
+#: src/Shipping/ShippingMethod.php:139
+#, php-format
+msgid "%s days"
 msgstr ""
 
 #: src/Checkout/CodFee.php:88
@@ -290,4 +422,13 @@ msgstr ""
 
 #: src/Checkout/CheckoutTweaks.php:219
 msgid "Upazila / Thana:"
+msgstr ""
+
+#. translators: {amount} is replaced with the missing amount, keep it unchanged.
+#: src/Checkout/FreeShippingNotice.php:76
+msgid "Add {amount} more to get free delivery."
+msgstr ""
+
+#: src/Checkout/FreeShippingNotice.php:83
+msgid "You have unlocked free delivery."
 msgstr ""

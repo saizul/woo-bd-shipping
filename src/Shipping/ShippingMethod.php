@@ -9,7 +9,9 @@ declare(strict_types=1);
 
 namespace WooBDShipping\Shipping;
 
+use WooBDShipping\DeliveryEstimate;
 use WooBDShipping\Plugin;
+use WooBDShipping\Settings;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -95,16 +97,67 @@ class ShippingMethod extends \WC_Shipping_Method {
 		 * @param array  $package  WooCommerce shipping package.
 		 * @param string $zone     inside_dhaka, sub_area or outside.
 		 */
-		$cost = (float) apply_filters( 'woo_bd_shipping_rate', $cost, $code, $package, $calculator->zoneFor( $code ) );
+		$zone = $calculator->zoneFor( $code );
+		$cost = (float) apply_filters( 'woo_bd_shipping_rate', $cost, $code, $package, $zone );
+
+		$label    = $this->title;
+		$meta     = array();
+		$estimate = $this->delivery_estimate( $code, $zone, $package );
+		if ( '' !== $estimate ) {
+			$label = DeliveryEstimate::decorate( (string) Settings::get( 'delivery_label', '' ), $estimate, $label );
+			$meta[ __( 'Estimated delivery', 'woo-bd-shipping' ) ] = $estimate;
+		}
 
 		$this->add_rate(
 			array(
-				'id'      => $this->get_rate_id(),
-				'label'   => $this->title,
-				'cost'    => max( 0.0, $cost ),
-				'package' => $package,
+				'id'        => $this->get_rate_id(),
+				'label'     => $label,
+				'cost'      => max( 0.0, $cost ),
+				'package'   => $package,
+				'meta_data' => $meta,
 			)
 		);
+	}
+
+	/**
+	 * Estimated delivery time for a district, or an empty string when the estimate is off or not configured.
+	 *
+	 * @param string              $code    District code.
+	 * @param string              $zone    inside_dhaka, sub_area or outside.
+	 * @param array<string,mixed> $package Shipping package.
+	 */
+	private function delivery_estimate( string $code, string $zone, array $package ): string {
+		if ( ! Settings::enabled( 'delivery_estimate' ) ) {
+			return '';
+		}
+
+		$words = array(
+			'same_day' => __( 'Same day', 'woo-bd-shipping' ),
+			/* translators: %s: number of days, always 1. */
+			'day'      => __( '%s day', 'woo-bd-shipping' ),
+			/* translators: %s: number of days or a range such as 2-3. */
+			'days'     => __( '%s days', 'woo-bd-shipping' ),
+		);
+		$format = DeliveryEstimate::FORMAT_DATES === Settings::get( 'delivery_format' ) ? DeliveryEstimate::FORMAT_DATES : DeliveryEstimate::FORMAT_DAYS;
+
+		$estimate = Plugin::deliveryEstimate()->estimate(
+			$code,
+			$zone,
+			current_datetime(),
+			$format,
+			$words,
+			static fn ( \DateTimeImmutable $date ): string => (string) wp_date( 'j M', $date->getTimestamp() )
+		);
+
+		/**
+		 * Filters the delivery estimate text. Return an empty string to hide it.
+		 *
+		 * @param string $estimate Estimate such as "2-3 days" or "14 Nov - 16 Nov".
+		 * @param string $code     District code, e.g. BD-13.
+		 * @param string $zone     inside_dhaka, sub_area or outside.
+		 * @param array  $package  WooCommerce shipping package.
+		 */
+		return (string) apply_filters( 'woo_bd_delivery_estimate', $estimate, $code, $zone, $package );
 	}
 
 	/**

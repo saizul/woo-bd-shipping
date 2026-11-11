@@ -61,6 +61,13 @@ final class Plugin {
 	}
 
 	/**
+	 * Delivery estimator built from the saved settings.
+	 */
+	public static function deliveryEstimate(): DeliveryEstimate {
+		return DeliveryEstimate::fromSettings( Settings::all(), self::districts() );
+	}
+
+	/**
 	 * Register hooks.
 	 */
 	public function boot(): void {

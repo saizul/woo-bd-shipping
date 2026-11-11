@@ -9,6 +9,8 @@ All notable changes to this project are documented here. The format follows
 ### Added
 - Free shipping progress notice ("Add ৳X more to get free delivery.") on the cart and checkout pages, enabled in the settings, plus the `[woo_bd_free_shipping]` shortcode. The message is editable and supports an `{amount}` placeholder.
 - `FreeShipping` helper with unit tests.
+- Delivery estimate on the shipping rate ("Delivery in 1-2 days" or arrival dates such as "14 Nov - 16 Nov"): day ranges per zone, per-district overrides, an order cut-off time and weekly off days (Friday, or Friday and Saturday). The estimate is also saved on the order's shipping line.
+- `woo_bd_delivery_estimate` filter and a `DeliveryEstimate` helper with unit tests.
 
 ## [1.0.0] - 2026-11-07
 
