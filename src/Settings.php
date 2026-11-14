@@ -51,6 +51,13 @@ final class Settings {
 			'cod_fee_type'       => 'fixed',
 			'cod_fee_value'      => 0,
 			'cod_fee_label'      => 'Cash on delivery fee',
+			// Cash on delivery restrictions.
+			'cod_min_total'          => 0,
+			'cod_max_total'          => 0,
+			'cod_max_items'          => 0,
+			'cod_blocked_districts'  => array(),
+			'cod_require_district'   => 'no',
+			'cod_restriction_notice' => 'yes',
 			// Checkout.
 			'district_select'    => 'yes',
 			'district_lang'      => 'both',

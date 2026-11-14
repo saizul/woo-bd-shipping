@@ -11,6 +11,11 @@ All notable changes to this project are documented here. The format follows
 - `FreeShipping` helper with unit tests.
 - Delivery estimate on the shipping rate ("Delivery in 1-2 days" or arrival dates such as "14 Nov - 16 Nov"): day ranges per zone, per-district overrides, an order cut-off time and weekly off days (Friday, or Friday and Saturday). The estimate is also saved on the order's shipping line.
 - `woo_bd_delivery_estimate` filter and a `DeliveryEstimate` helper with unit tests.
+- Cash on delivery restrictions: hide the COD gateway below a minimum or above a maximum order total, above an item limit, for selected districts, or until a district is chosen. An optional notice above the payment methods explains why, and a COD order that breaks a rule is rejected during checkout validation.
+- `woo_bd_cod_order_total` and `woo_bd_cod_blocked_reason` filters and a `CodRules` helper with unit tests.
+
+### Fixed
+- The COD fee is no longer added when the Cash on Delivery gateway is unavailable but still remembered as the chosen payment method in the session.
 
 ## [1.0.0] - 2026-11-07
 

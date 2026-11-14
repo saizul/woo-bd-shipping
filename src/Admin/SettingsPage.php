@@ -110,6 +110,12 @@ final class SettingsPage {
 					),
 					'cod_fee_value' => array( 'type' => 'money', 'label' => __( 'COD fee value', 'woo-bd-shipping' ), 'desc' => __( 'Amount or percentage. 0 disables the fee.', 'woo-bd-shipping' ) ),
 					'cod_fee_label' => array( 'type' => 'text', 'label' => __( 'COD fee label', 'woo-bd-shipping' ), 'desc' => __( 'Name of the fee line at checkout.', 'woo-bd-shipping' ) ),
+					'cod_min_total'          => array( 'type' => 'money', 'label' => __( 'COD minimum order', 'woo-bd-shipping' ), 'desc' => __( 'Hide cash on delivery when the order total is below this amount. 0 disables it.', 'woo-bd-shipping' ) ),
+					'cod_max_total'          => array( 'type' => 'money', 'label' => __( 'COD maximum order', 'woo-bd-shipping' ), 'desc' => __( 'Hide cash on delivery when the order total is above this amount. 0 disables it.', 'woo-bd-shipping' ) ),
+					'cod_max_items'          => array( 'type' => 'money', 'label' => __( 'COD maximum items', 'woo-bd-shipping' ), 'desc' => __( 'Hide cash on delivery when the cart holds more items than this. 0 disables it.', 'woo-bd-shipping' ) ),
+					'cod_blocked_districts'  => array( 'type' => 'districts', 'label' => __( 'Districts without COD', 'woo-bd-shipping' ), 'desc' => __( 'Cash on delivery is hidden for these districts. Hold Ctrl or Cmd to select several.', 'woo-bd-shipping' ) ),
+					'cod_require_district'   => array( 'type' => 'checkbox', 'label' => __( 'Require a district for COD', 'woo-bd-shipping' ), 'desc' => __( 'Hide cash on delivery until the customer has chosen a known district.', 'woo-bd-shipping' ) ),
+					'cod_restriction_notice' => array( 'type' => 'checkbox', 'label' => __( 'Explain hidden COD', 'woo-bd-shipping' ), 'desc' => __( 'Show a short message above the payment methods when cash on delivery is hidden.', 'woo-bd-shipping' ) ),
 				),
 			),
 			'checkout' => array(
