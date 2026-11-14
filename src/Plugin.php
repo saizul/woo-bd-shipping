@@ -11,6 +11,7 @@ namespace WooBDShipping;
 
 use WooBDShipping\Admin\SettingsPage;
 use WooBDShipping\Checkout\CheckoutTweaks;
+use WooBDShipping\Checkout\CodAvailability;
 use WooBDShipping\Checkout\CodFee;
 use WooBDShipping\Checkout\FreeShippingNotice;
 use WooBDShipping\Shipping\ShippingMethod;
@@ -78,6 +79,7 @@ final class Plugin {
 		( new SettingsPage() )->register();
 		( new CheckoutTweaks() )->register();
 		( new CodFee() )->register();
+		( new CodAvailability() )->register();
 		( new FreeShippingNotice() )->register();
 	}
 

@@ -19,6 +19,7 @@ BD Shipping & Checkout for WooCommerce prepares a store for Bangladeshi customer
 * A shipping method with Inside Dhaka, Dhaka sub-area and Outside Dhaka rates, per-district overrides, extra charge per kg and a free shipping threshold.
 * Optional delivery estimate next to the shipping rate ("Delivery in 2-3 days" or arrival dates), per zone and per district, with an order cut-off time and weekly off days.
 * Cash on delivery fee, fixed or percentage.
+* Cash on delivery restrictions: hide COD below a minimum or above a maximum order total, above an item limit, for selected districts, or until a district is chosen, with a message explaining why.
 * Checkout tweaks you can switch on or off: mobile number validation (01[3-9]XXXXXXXX, +880 and 880 prefixes, Bangla digits), remove postcode and company, phone required, Bangla order note label.
 * Translation ready with a Bangla translation.
 * Compatible with High-Performance Order Storage (HPOS).
@@ -58,9 +59,13 @@ Yes. Enable "Show delivery estimate" in the settings and enter the working days 
 
 A fixed amount, or a percentage of the cart subtotal plus the chosen shipping cost. It is added only when Cash on Delivery is selected and the customer ships to Bangladesh.
 
+= Can I turn off cash on delivery for some orders? =
+
+Yes. In the Cash on delivery section set a minimum or maximum order total, a maximum number of items, or the districts where COD is not offered. COD is then hidden at checkout, a short message explains why, and a COD order that breaks a rule is rejected.
+
 = Are there hooks for developers? =
 
-Yes: `woo_bd_districts`, `woo_bd_shipping_rate`, `woo_bd_delivery_estimate`, `woo_bd_cod_fee` and `woo_bd_cod_fee_base`. See the README on GitHub for details.
+Yes: `woo_bd_districts`, `woo_bd_shipping_rate`, `woo_bd_delivery_estimate`, `woo_bd_cod_fee`, `woo_bd_cod_fee_base`, `woo_bd_cod_order_total` and `woo_bd_cod_blocked_reason`. See the README on GitHub for details.
 
 = Does uninstalling remove data? =
 

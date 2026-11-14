@@ -11,6 +11,7 @@ District based shipping, COD fee and checkout tweaks for Bangladeshi WooCommerce
 - **Free shipping notice**: optional "Add ৳X more to get free delivery" message on the cart and checkout pages, or anywhere with the `[woo_bd_free_shipping]` shortcode.
 - **Delivery estimate**: optional "Delivery in 2-3 days" or arrival dates ("14 Nov - 16 Nov") next to the shipping rate, per zone with per-district overrides, an order cut-off time and weekly off days. The estimate is saved on the order.
 - **COD fee**, fixed or percentage, added when Cash on Delivery is selected (the totals refresh as the customer switches payment method).
+- **COD restrictions**: hide Cash on Delivery below a minimum or above a maximum order total, above an item limit, for selected districts, or until a district is chosen. A short message tells the customer why, and a blocked COD order is rejected at checkout.
 - **Checkout tweaks**, each one toggleable: Bangladeshi mobile validation (`01[3-9]XXXXXXXX`, `+880` / `880` prefixes, Bangla digits, saved as `01XXXXXXXXX`), remove postcode and company, phone required, Bangla order note label.
 - Settings page under **WooCommerce > BD Shipping** (Settings API, nonces, capability checks).
 - Translation ready (`woo-bd-shipping` text domain, `.pot` and a Bangla `bn_BD` translation).
@@ -53,6 +54,21 @@ Enable **Show delivery estimate** under **WooCommerce > BD Shipping** to add the
 
 The cut-off time and off days only matter for the **arrival dates** format: the parcel leaves on the order day (or the next working day after the cut-off or on an off day) and each delivery day skips the off days. With a 14:00 cut-off, Friday off and `1-2` days, an order placed on Wednesday evening is dispatched on Thursday and shown as arriving Saturday to Sunday. WooCommerce caches shipping rates per cart, so the dates refresh when the cart or address changes.
 
+## COD restrictions
+
+Under **WooCommerce > BD Shipping > Cash on delivery** you can limit when the Cash on Delivery gateway is offered to customers shipping to Bangladesh. Every limit is off by default.
+
+| Setting | Example | Meaning |
+| --- | --- | --- |
+| COD minimum order | `500` | Hide COD when the order total is below this amount. |
+| COD maximum order | `20000` | Hide COD when the order total is above this amount, for example to limit cash risk on expensive orders. |
+| COD maximum items | `5` | Hide COD when the cart holds more items (total quantity) than this. |
+| Districts without COD | Bandarban, Rangamati | Hide COD for the selected districts. |
+| Require a district for COD | on | Hide COD until the customer has chosen a known district. |
+| Explain hidden COD | on | Show a short message above the payment methods, such as "Cash on delivery is available for orders up to ৳20,000.00. Please pay online." |
+
+The order total includes shipping, fees and tax; change it with the `woo_bd_cod_order_total` filter. The rules are checked in a fixed order (district, minimum, maximum, items) and the first match is reported. If a customer submits a stale checkout form with COD selected after the cart has changed, the order is rejected with the same message. The COD fee is not added while COD is hidden.
+
 ## Hooks
 
 ### Filters
@@ -64,6 +80,8 @@ The cut-off time and off days only matter for the **arrival dates** format: the 
 | `woo_bd_delivery_estimate` | `string $estimate, string $district_code, string $zone, array $package` | Change the delivery estimate text. Return an empty string to hide it. |
 | `woo_bd_cod_fee` | `float $fee, string $type, float $value` | Adjust the COD fee. |
 | `woo_bd_cod_fee_base` | `float $base` | Change the amount a percentage COD fee is applied to (default: subtotal plus chosen shipping, ex tax). |
+| `woo_bd_cod_order_total` | `float $total` | Change the amount the COD minimum and maximum are compared against (default: cart total). |
+| `woo_bd_cod_blocked_reason` | `?string $reason, float $total, int $items, ?string $district_code` | Return `null` to allow COD or a reason string to block it. Built-in reasons are `below_min`, `above_max`, `too_many_items`, `district` and `no_district`. |
 
 Examples:
 
@@ -72,6 +90,16 @@ Examples:
 add_filter( 'woo_bd_shipping_rate', function ( $cost, $code ) {
     return in_array( $code, array( 'BD-01', 'BD-29', 'BD-56' ), true ) ? $cost + 50 : $cost;
 }, 10, 2 );
+
+// Never offer COD for orders containing a gift card product.
+add_filter( 'woo_bd_cod_blocked_reason', function ( $reason ) {
+    foreach ( WC()->cart->get_cart() as $item ) {
+        if ( has_term( 'gift-card', 'product_cat', $item['product_id'] ) ) {
+            return 'gift_card';
+        }
+    }
+    return $reason;
+} );
 
 // Rename a district label.
 add_filter( 'woo_bd_districts', function ( $districts ) {
@@ -88,7 +116,7 @@ vendor/bin/phpunit
 find . -name '*.php' -not -path './vendor/*' -print0 | xargs -0 -n1 php -l
 ```
 
-Tested classes: `Districts`, `PhoneNormalizer`, `RateConfig`, `RateCalculator`, `FreeShipping`, `DeliveryEstimate` in `src/`. See [CONTRIBUTING.md](CONTRIBUTING.md) and [CHANGELOG.md](CHANGELOG.md).
+Tested classes: `Districts`, `PhoneNormalizer`, `RateConfig`, `RateCalculator`, `FreeShipping`, `DeliveryEstimate`, `CodRules` in `src/`. See [CONTRIBUTING.md](CONTRIBUTING.md) and [CHANGELOG.md](CHANGELOG.md).
 
 ## FAQ
 

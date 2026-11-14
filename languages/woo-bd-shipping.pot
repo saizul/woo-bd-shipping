@@ -432,3 +432,78 @@ msgstr ""
 #: src/Checkout/FreeShippingNotice.php:83
 msgid "You have unlocked free delivery."
 msgstr ""
+
+#: src/Admin/SettingsPage.php:113
+msgid "COD minimum order"
+msgstr ""
+
+#: src/Admin/SettingsPage.php:113
+msgid "Hide cash on delivery when the order total is below this amount. 0 disables it."
+msgstr ""
+
+#: src/Admin/SettingsPage.php:114
+msgid "COD maximum order"
+msgstr ""
+
+#: src/Admin/SettingsPage.php:114
+msgid "Hide cash on delivery when the order total is above this amount. 0 disables it."
+msgstr ""
+
+#: src/Admin/SettingsPage.php:115
+msgid "COD maximum items"
+msgstr ""
+
+#: src/Admin/SettingsPage.php:115
+msgid "Hide cash on delivery when the cart holds more items than this. 0 disables it."
+msgstr ""
+
+#: src/Admin/SettingsPage.php:116
+msgid "Districts without COD"
+msgstr ""
+
+#: src/Admin/SettingsPage.php:116
+msgid "Cash on delivery is hidden for these districts. Hold Ctrl or Cmd to select several."
+msgstr ""
+
+#: src/Admin/SettingsPage.php:117
+msgid "Require a district for COD"
+msgstr ""
+
+#: src/Admin/SettingsPage.php:117
+msgid "Hide cash on delivery until the customer has chosen a known district."
+msgstr ""
+
+#: src/Admin/SettingsPage.php:118
+msgid "Explain hidden COD"
+msgstr ""
+
+#: src/Admin/SettingsPage.php:118
+msgid "Show a short message above the payment methods when cash on delivery is hidden."
+msgstr ""
+
+#. translators: {min} is replaced with the minimum order amount, keep it unchanged.
+#: src/Checkout/CodAvailability.php:152
+msgid "Cash on delivery is available for orders of {min} or more."
+msgstr ""
+
+#. translators: {max} is replaced with the maximum order amount, keep it unchanged.
+#: src/Checkout/CodAvailability.php:156
+msgid "Cash on delivery is available for orders up to {max}. Please pay online."
+msgstr ""
+
+#. translators: {items} is replaced with the item limit, keep it unchanged.
+#: src/Checkout/CodAvailability.php:160
+msgid "Cash on delivery is available for up to {items} items per order."
+msgstr ""
+
+#: src/Checkout/CodAvailability.php:163
+msgid "Cash on delivery is not available for your district. Please pay online."
+msgstr ""
+
+#: src/Checkout/CodAvailability.php:166
+msgid "Select your district to see if cash on delivery is available."
+msgstr ""
+
+#: src/Checkout/CodAvailability.php:169
+msgid "Cash on delivery is not available for this order."
+msgstr ""

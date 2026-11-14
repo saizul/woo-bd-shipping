@@ -64,6 +64,12 @@ final class CodFee {
 			return;
 		}
 
+		// No fee when a COD restriction has hidden the gateway but the session still remembers it.
+		$available = WC()->payment_gateways() ? WC()->payment_gateways()->get_available_payment_gateways() : array();
+		if ( ! isset( $available['cod'] ) ) {
+			return;
+		}
+
 		$base = (float) $cart->get_subtotal() + $this->chosen_shipping_cost();
 
 		/**
